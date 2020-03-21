@@ -10,7 +10,7 @@ body {
   background-color: rgb(255, 255, 255);
   z-index: 100;
   background-image: url("img/logo_green.png");
-  background-size: 10vw;
+  background-size: 10em;
   background-position: center;
   background-repeat: no-repeat;
   animation: loaded 2s;
@@ -18,21 +18,21 @@ body {
 
 @keyframes loaded {
   0% {
-    background-size: 5vw;
+    background-size: 5em;
     width: 100vw;
   }
   30% {
     width: 100vw;
-    background-size: 12vw;
+    background-size: 12em;
   }
   60% {
     width: 100vw;
-    background-size: 12vw;
+    background-size: 12em;
     background-position: center;
   }
   100% {
     width: 0vw;
-    background-size: 10vw;
+    background-size: 10em;
     background-position: -20vw;
   }
 }
@@ -108,6 +108,21 @@ body {
   transform: rotate(-45deg);
 }
 
+.burger_menu {
+  top: 0;
+  left: 0;
+  transition-duration: 1s;
+  position: fixed;
+  width: 60vw;
+  height: 100vh;
+  background-color: white;
+}
+
+.burger_menu.closed {
+  width: 0;
+  height: 100vh;
+}
+
 .page_1 {
   width: 100vw;
   height: 100vh;
@@ -125,6 +140,15 @@ body {
   font-size: 5em;
   width: 30vw;
   user-select: none;
+}
+
+@media (max-width: 525px) {
+  .headline {
+    font-size: 3em;
+  }
+  .main {
+    overflow: hidden;
+  }
 }
 
 .sub_h {
