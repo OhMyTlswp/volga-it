@@ -170,12 +170,12 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: loaded_fog 10s;
+  animation: loaded_fog 6s;
   opacity: 0.8;
 }
 
 @keyframes loaded_fog {
-  20% {
+  33% {
     transform: scale(0.95);
     opacity: 0;
   }
