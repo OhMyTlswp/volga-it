@@ -68,5 +68,5 @@ window.onload = () => {
         document.querySelector('.page_5 .leaves').style.transform = 'translate(-' + event.pageX / 100 + 'px,-' + event.pageY / 100 + 'px)'
       }
     })
-  }, 0);
+  }, 1000);
 }

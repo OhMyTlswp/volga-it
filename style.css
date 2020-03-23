@@ -165,7 +165,7 @@ body {
 }
 
 .pages {
-  transform: translate(0vw);
+  transform: translate(-100vw);
   display: flex;
   transition: 2s ease-in-out;
 }
