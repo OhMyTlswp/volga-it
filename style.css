@@ -4,6 +4,7 @@ body {
 }
 
 .animation {
+  font-family: 'Playfair Display', serif;
   position: fixed;
   width: 0vw;
   height: 100vh;
@@ -14,6 +15,12 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   animation: loaded 2s;
+}
+
+.not_loaded {
+  background-size: 5em;
+  width: 100vw;
+  animation: 2s;
 }
 
 @keyframes loaded {
@@ -137,7 +144,7 @@ body {
 }
 
 .logo {
-  transition: 1s;
+  transition: 2s;
   background-image: url('img/logo_white.png');
   background-size: contain;
   background-position: center;
@@ -158,14 +165,22 @@ body {
 }
 
 .pages {
+  transform: translate(0vw);
   display: flex;
   transition: 2s ease-in-out;
 }
 
-.page_1 {
+.page_1,
+.page_2,
+.page_3,
+.page_4,
+.page_5 {
   position: relative;
   width: 100vw;
   height: 100vh;
+}
+
+.page_1 {
   background-image: url("img/bg.jpg");
   background-size: cover;
   background-position: center;
@@ -194,7 +209,7 @@ body {
 
 .page_1 .sub_h {
   font-family: 'Alegreya Sans SC', sans-serif;
-  color: white;
+  color: white !important;
   font-size: 1rem;
   user-select: none;
 }
@@ -226,12 +241,6 @@ body {
   }
 }
 
-.page_2 {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
-
 .page_2 .cup_of_tea {
   position: absolute;
   overflow: hidden;
@@ -244,21 +253,37 @@ body {
   background-size: cover;
 }
 
-.page_2 .headline {
+.headline {
   position: absolute;
+  font-family: 'Playfair Display', serif;
+  user-select: none;
+  color: #393838;
+}
+
+.headline .sub_h {
+  margin-top: 2em;
+  font-family: 'Playfair Display', serif;
+  user-select: none;
+  color: #393838;
+}
+
+.page_number {
+  margin-top: 1em;
+  font-family: 'Playfair Display', serif;
+  user-select: none;
+  color: #CCDACF;
+}
+
+.page_2 .headline {
   top: 20vh;
   right: 10vw;
-  font-family: 'Playfair Display', serif;
-  color: white;
   font-size: 3em;
   width: 50vw;
-  user-select: none;
   color: #393838;
 }
 
 .page_2 .headline .sub_h {
   margin-top: 2em;
-  font-family: 'Playfair Display', serif;
   font-size: 1rem;
   user-select: none;
   color: #393838;
@@ -266,10 +291,13 @@ body {
 
 .page_2 .page_number {
   margin-top: 1em;
-  font-family: 'Playfair Display', serif;
   font-size: 2rem;
   user-select: none;
   color: #CCDACF;
+}
+
+.leaves {
+  transition: 1s ease-out;
 }
 
 .leaves * {
@@ -289,37 +317,34 @@ body {
   transform: rotate(-90deg) translateY(0);
 }
 
+.leaf {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .leaf_1 {
   top: 4vh;
   left: 22vw;
-  position: absolute;
   width: 10em;
   height: 10em;
   background-image: url('img/leaf_1.png');
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .leaf_2 {
   top: 80vh;
   left: 50vw;
-  position: absolute;
   width: 10em;
   height: 10em;
   background-image: url('img/leaf_2.png');
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .leaf_3 {
   top: 50vh;
   left: 80vw;
-  position: absolute;
   width: 6em;
   height: 6em;
   background-image: url('img/leaf_3.png');
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .page_2 .cup_of_tea_lemon {
@@ -332,4 +357,245 @@ body {
   background-image: url('img/cup_of_tea_lemon.jpg');
   background-position: center;
   background-size: cover;
+}
+
+.page_3 .greenfield_summer {
+  position: absolute;
+  overflow: hidden;
+  width: 35vw;
+  height: 100vh;
+  background-image: url('img/greenfield_summer.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.page_3 .greenfield_autumn {
+  position: absolute;
+  overflow: hidden;
+  width: 35vw;
+  height: 100vh;
+  background-image: url('img/greenfield_autumn.jpg');
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+}
+
+.greenfield_autumn_animation {
+  animation-delay: 2s;
+  animation-name: autumn_animation;
+  animation-duration: 5s;
+}
+
+@keyframes autumn_animation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.page_3 .greenfield_lake {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 7vw;
+  width: 35vw;
+  height: 40vh;
+  background-image: url('img/greenfield_lake.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.page_3 .headline {
+  top: 50vh;
+  left: 40vw;
+  font-size: 3.5em;
+  line-height: 1.1em;
+  width: 42vw;
+  user-select: none;
+  color: #393838;
+}
+
+.page_3 .headline .sub_h {
+  line-height: normal;
+  font-size: 1rem;
+  user-select: none;
+  color: #393838;
+}
+
+.page_3 .page_number {
+  font-size: 2rem;
+  user-select: none;
+  color: #CCDACF;
+}
+
+.leaf_4 {
+  top: 35vh;
+  left: 37vw;
+  width: 7em;
+  height: 7em;
+  background-image: url('img/leaf_4.png');
+}
+
+.leaf_5 {
+  top: 43vh;
+  right: 30vw;
+  width: 5em;
+  height: 5em;
+  background-image: url('img/leaf_5.png');
+}
+
+.leaf_6 {
+  bottom: 5vh;
+  right: 10vw;
+  width: 10em;
+  height: 10em;
+  background-image: url('img/leaf_6.png');
+  transform: rotate(-50deg);
+}
+
+.leaves.view .leaf_5 {
+  transform: scale(-1) rotate(-90deg);
+}
+
+.leaves.view .leaf_6 {
+  transform: rotate(-100deg);
+}
+
+.leaves {
+  width: 100%;
+  height: 100vh;
+}
+
+.page_4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page_4 .greenfield_raft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 85vw;
+  height: 75vh;
+  background-image: url('img/greenfield_raft.jpg');
+  background-position: top;
+  background-size: cover;
+}
+
+.page_4 .greenfield_raft img {
+  cursor: pointer;
+}
+
+.page_5 .greenfield_hills {
+  position: absolute;
+  width: 35vw;
+  height: 85vh;
+  background-image: url('img/greenfield_hills.jpg');
+  background-position: left;
+  background-size: cover;
+}
+
+.page_5 .collage_box {
+  position: absolute;
+  overflow: hidden;
+  bottom: -12vh;
+  transform: translateX(-5vw);
+  width: 70vw;
+  height: 70vh;
+  background-image: url('img/collage_box.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.page_5 .headline {
+  top: 20vh;
+  right: 5vw;
+  font-size: 3.5em;
+  line-height: 1.1em;
+  width: 45vw;
+  user-select: none;
+  color: #393838;
+}
+
+.page_5 .headline .sub_h {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: normal;
+  font-size: 1rem;
+  user-select: none;
+  color: #393838;
+}
+
+.page_5 .button {
+  margin-top: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: normal;
+  width: 15em;
+  height: 4em;
+  font-size: 0.9rem;
+  user-select: none;
+  background: linear-gradient( #066035, #074627);
+  border-width: 0.1em;
+  cursor: pointer;
+}
+
+.page_5 .button:hover .button_bg {
+  background-position: 0 0;
+  color: white;
+}
+
+.page_5 .button .button_bg {
+  transition: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, transparent 50%, transparent, #ffffff 50%, #ffffff);
+  background-position: 100% 0;
+  background-size: 200% 100%;
+  color: #066035;
+  font-weight: bold;
+  width: calc(100% - 0.8em);
+  height: calc(100% - 0.8em);
+}
+
+.leaf_7 {
+  top: 12vh;
+  right: 50vw;
+  width: 8em;
+  height: 8em;
+  background-image: url('img/leaf_7.png');
+}
+
+.leaves.view .leaf_7 {
+  transform: rotate(-20deg);
+}
+
+.leaf_8 {
+  top: 34vh;
+  right: 25vw;
+  width: 5em;
+  height: 5em;
+  background-image: url('img/leaf_8.png');
+}
+
+.leaves.view .leaf_8 {
+  transform: rotate(-30deg);
+}
+
+.leaf_9 {
+  bottom: 10vh;
+  right: 10vw;
+  width: 10em;
+  height: 10em;
+  background-image: url('img/leaf_9.png');
 }
