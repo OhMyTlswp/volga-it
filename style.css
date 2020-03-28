@@ -138,9 +138,130 @@ body {
   background-color: white;
 }
 
+.burger_menu_blocks {
+  transition: .3s;
+  opacity: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .burger_menu.closed {
   width: 0;
   height: 100vh;
+}
+
+.burger_menu_block {
+  max-height: 5%;
+  transition: .5s;
+  opacity: 1;
+  min-width: 35%;
+}
+
+.site_map {
+  font-size: 2em;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.8em;
+}
+
+.contacts div {
+  font-family: 'Ubuntu';
+  font-size: 1em;
+  line-height: 2em;
+}
+
+.contacts .title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  line-height: 1.8em;
+}
+
+.contacts .address {
+  margin: 1em 0;
+}
+
+.contacts .email {
+  margin-top: 3em;
+}
+
+.info {
+  font-family: 'Ubuntu';
+  font-size: 1em;
+  line-height: 2em;
+}
+
+.social {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+}
+
+.social .title {
+  margin-bottom: 1em;
+}
+
+.social_box {
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+}
+
+.social_item {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  background-image: linear-gradient(to bottom, #066035, #074627);
+  border-radius: 2em;
+}
+
+.social_item::after {
+  transition-duration: .3s;
+  position: fixed;
+  content: '';
+  border-radius: 2em;
+  width: 2.2em;
+  height: 2.2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(255, 255, 255);
+}
+
+.social_item:hover::after {
+  position: fixed;
+  content: '';
+  border-radius: 2em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.social_item.vk::after {
+  background-image: url('img/icon_vk.png');
+}
+
+.social_item.vk:hover::after {
+  background-image: url('img/icon_vk_white.png');
+}
+
+.social_item.twitter::after {
+  background-image: url('img/icon_twitter.png');
+}
+
+.social_item.twitter:hover::after {
+  background-image: url('img/icon_twitter_white.png');
+}
+
+.social_item.instagram::after {
+  background-image: url('img/icon_instagram.png');
+}
+
+.social_item.instagram:hover::after {
+  background-image: url('img/icon_instagram_white.png');
 }
 
 .logo {
@@ -178,14 +299,31 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+}
+
+.headline {
+  transition: 1.5s;
+  transform: translateX(50vw);
 }
 
 .page_1 {
+  display: flex;
+  align-items: center;
+}
+
+.page_1 .back {
+  transition: 2s;
+  width: 100%;
+  height: 100%;
   background-image: url("img/bg.jpg");
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
+  transform: scale(1.2);
+}
+
+.page_1.view .back {
+  transform: scale(1);
 }
 
 .page_1 .headline {
@@ -196,6 +334,7 @@ body {
   font-size: 5em;
   width: 30vw;
   user-select: none;
+  transform: translateX(0vw);
 }
 
 @media (max-width: 525px) {
@@ -242,6 +381,7 @@ body {
 }
 
 .page_2 .cup_of_tea {
+  transition: 2s;
   position: absolute;
   overflow: hidden;
   width: 20vw;
@@ -251,6 +391,32 @@ body {
   background-image: url('img/сup_of_tea.jpg');
   background-position: center;
   background-size: cover;
+}
+
+.page_2 .cup_of_tea_lemon {
+  transition: 2s;
+  position: absolute;
+  overflow: hidden;
+  width: 30vw;
+  height: 35vh;
+  bottom: 0;
+  right: 6em;
+}
+
+.cup_of_tea_lemon::after {
+  content: '';
+  position: fixed;
+  width: 30vw;
+  height: 35vh;
+  background-image: url('img/cup_of_tea_lemon.jpg');
+  background-position: center;
+  background-size: cover;
+  transition: 2s;
+  transform: scale(1.2);
+}
+
+.page_2.view .cup_of_tea_lemon::after {
+  transform: scale(1);
 }
 
 .headline {
@@ -345,18 +511,6 @@ body {
   width: 6em;
   height: 6em;
   background-image: url('img/leaf_3.png');
-}
-
-.page_2 .cup_of_tea_lemon {
-  position: absolute;
-  overflow: hidden;
-  width: 30vw;
-  height: 35vh;
-  bottom: 0;
-  right: 6em;
-  background-image: url('img/cup_of_tea_lemon.jpg');
-  background-position: center;
-  background-size: cover;
 }
 
 .page_3 .greenfield_summer {

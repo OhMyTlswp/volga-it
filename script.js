@@ -6,38 +6,69 @@ window.onload = () => {
       burgerMenu = document.querySelector('.burger_menu'),
       selectedPage = 0;
     stopped = false;
+    var burgerTimeout;
     burgerButton.addEventListener('click', function() {
       burgerButton.classList.toggle('opened');
       burgerMenu.classList.toggle('closed');
+      if (burgerMenu.className === 'burger_menu') {
+        burgerTimeout = setTimeout(() => {
+          document.querySelector('.burger_menu_blocks').style.opacity = 1;
+        }, 300);
+      } else {
+        clearTimeout(burgerTimeout);
+        document.querySelector('.burger_menu_blocks').style.opacity = 0;
+      }
     })
     window.addEventListener('wheel', function() {
       if (!stopped) {
         document.querySelector('.pages').style.transition = '2s';
-        stopped = true;
-        var stoppedTimeout = setTimeout(() => {
-          stopped = false;
-          document.querySelector('.pages').style.transition = '0s';
-        }, 2000);
         if (event.deltaY > 0 && selectedPage < 4) {
+          stopped = true;
+          var stoppedTimeout = setTimeout(() => {
+            stopped = false;
+            document.querySelector('.pages').style.transition = '0s';
+          }, 2000);
           selectedPage += 1;
+          var x = 100 * selectedPage;
+          document.querySelector('.pages').style.transform = 'translateX(-' + x + 'vw)';
         }
         if (event.deltaY < 0 && selectedPage > 0) {
+          stopped = true;
+          var stoppedTimeout = setTimeout(() => {
+            stopped = false;
+            document.querySelector('.pages').style.transition = '0s';
+          }, 2000);
           selectedPage -= 1;
+          var x = 100 * selectedPage;
+          document.querySelector('.pages').style.transform = 'translateX(-' + x + 'vw)';
         }
-        var x = 100 * selectedPage;
-        document.querySelector('.pages').style.transform = 'translateX(-' + x + 'vw)';
-        if (selectedPage >= 1) {
-          document.querySelector('.logo').classList.add('green');
-        }
-        if (selectedPage === 1) {
-          document.querySelector('.page_2 .leaves').classList.add('view');
-        }
-        if (selectedPage === 2) {
-          document.querySelector('.page_3 .leaves').classList.add('view');
-          document.querySelector('.greenfield_autumn').classList.add('greenfield_autumn_animation');
-        }
-        if (selectedPage === 4) {
-          document.querySelector('.page_5 .leaves').classList.add('view');
+
+        switch (selectedPage) {
+          case 0:
+            document.querySelector('.page_1').classList.add('view');
+            document.querySelector('.logo').classList.remove('green');
+            document.querySelector('.page_2 .headline').style.transform = 'translateX(20vw)';
+            break;
+          case 1:
+            document.querySelector('.page_2').classList.add('view');
+            document.querySelector('.logo').classList.add('green');
+            document.querySelector('.page_2 .leaves').classList.add('view');
+            document.querySelector('.page_2 .headline').style.transform = 'translateX(0vw)';
+            document.querySelector('.page_3 .headline').style.transform = 'translateX(20vw)';
+            break;
+          case 2:
+            document.querySelector('.page_3 .leaves').classList.add('view');
+            document.querySelector('.page_2 .headline').style.transform = 'translateX(-20vw)';
+            document.querySelector('.page_3 .headline').style.transform = 'translateX(0vw)';
+            break;
+          case 3:
+            document.querySelector('.page_3 .headline').style.transform = 'translateX(-20vw)';
+            document.querySelector('.page_5 .headline').style.transform = 'translateX(20vw)';
+            break;
+          case 4:
+            document.querySelector('.page_5 .leaves').classList.add('view');
+            document.querySelector('.page_5 .headline').style.transform = 'translateX(0vw)';
+            break;
         }
         if (selectedPage !== 4) {
           document.querySelector('.page_5 .leaves').classList.remove('view');
@@ -48,9 +79,10 @@ window.onload = () => {
         }
         if (selectedPage !== 1) {
           document.querySelector('.page_2 .leaves').classList.remove('view');
+          document.querySelector('.page_2').classList.remove('view');
         }
-        if (selectedPage < 1) {
-          document.querySelector('.logo').classList.remove('green');
+        if (selectedPage !== 0) {
+          document.querySelector('.page_1').classList.remove('view');
         }
       }
     })
